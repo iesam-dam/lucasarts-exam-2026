@@ -7,6 +7,12 @@ import java.util.Objects;
 
 public class CharacterMemLocalDataSource {
 
+    private static CharacterMemLocalDataSource instance = null;
+
+    private CharacterMemLocalDataSource(){
+
+    }
+
     private ArrayList<CharacterModel> storage = new ArrayList<>();
 
     public ArrayList<CharacterModel> findAll() {
@@ -19,5 +25,12 @@ public class CharacterMemLocalDataSource {
 
     public void delete(String characterId) {
         storage.removeIf(character -> Objects.equals(character.getId(), characterId));
+    }
+
+    public static CharacterMemLocalDataSource newInstance(){
+        if (instance == null){
+            instance = new CharacterMemLocalDataSource();
+        }
+        return instance;
     }
 }

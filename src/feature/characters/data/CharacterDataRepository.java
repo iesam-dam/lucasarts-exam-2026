@@ -3,6 +3,8 @@ package feature.characters.data;
 import feature.characters.domain.CharacterModel;
 import feature.characters.domain.CharacterRepository;
 
+import java.util.ArrayList;
+
 public class CharacterDataRepository implements CharacterRepository {
 
     private CharacterMemLocalDataSource characterMemLocalDataSource;
@@ -14,5 +16,10 @@ public class CharacterDataRepository implements CharacterRepository {
     @Override
     public void save(CharacterModel characterModel) {
         characterMemLocalDataSource.save(characterModel);
+    }
+
+    @Override
+    public ArrayList<CharacterModel> getCharacters() {
+        return characterMemLocalDataSource.findAll();
     }
 }
