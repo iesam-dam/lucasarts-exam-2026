@@ -31,6 +31,12 @@ public class CharacterView {
         CharacterModel characterModel = new CharacterModel("1", "name", "power", "color", "type");
         SaveCharacterUseCase saveCharacterUseCase = new SaveCharacterUseCase(new CharacterDataRepository(CharacterMemLocalDataSource.newInstance()));
         saveCharacterUseCase.execute(characterModel);
+
+        //Otra forma:
+        //CharacterMemLocalDataSource memLocalDataSource = CharacterMemLocalDataSource.newInstance();
+        //CharacterDataRepository characterDataRepository = new CharacterDataRepository(memLocalDataSource);
+        //SaveCharacterUseCase saveCharacterUseCase = new SaveCharacterUseCase(characterDataRepository);
+        //saveCharacterUseCase.execute(characterModel);
     }
 
     public static void printCharacters(){
