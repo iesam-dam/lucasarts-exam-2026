@@ -8,5 +8,6 @@ public class Main {
         // to see how IntelliJ IDEA suggests fixing it.
         CharacterView.function1();
         CharacterView.function2();
+        CharacterView.function3();
     }
 }

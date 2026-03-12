@@ -3,6 +3,7 @@ package feature.characters.presentation;
 import feature.characters.data.CharacterDataRepository;
 import feature.characters.data.CharacterMemLocalDataSource;
 import feature.characters.domain.CharacterModel;
+import feature.characters.domain.DeleteCharacterUseCase;
 import feature.characters.domain.GetCharactersUseCase;
 import feature.characters.domain.SaveCharacterUseCase;
 
@@ -20,6 +21,12 @@ public class CharacterView {
         printCharacters();
     }
 
+    public static void function3(){
+        printCharacters();
+        deleteCharacter();
+        printCharacters();
+    }
+
     public static void saveCharacter() {
         CharacterModel characterModel = new CharacterModel("1", "name", "power", "color", "type");
         SaveCharacterUseCase saveCharacterUseCase = new SaveCharacterUseCase(new CharacterDataRepository(CharacterMemLocalDataSource.newInstance()));
@@ -30,6 +37,13 @@ public class CharacterView {
         GetCharactersUseCase getCharactersUseCase = new GetCharactersUseCase(new CharacterDataRepository(CharacterMemLocalDataSource.newInstance()));
         ArrayList<CharacterModel> characteres = getCharactersUseCase.execute();
         System.out.println(characteres);
+    }
+
+    public static void deleteCharacter(){
+        String characterId = "1";
+
+        DeleteCharacterUseCase deleteCharacterUseCase = new DeleteCharacterUseCase(new CharacterDataRepository(CharacterMemLocalDataSource.newInstance()));
+        deleteCharacterUseCase.execute(characterId);
     }
 
 }

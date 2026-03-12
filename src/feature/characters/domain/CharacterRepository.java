@@ -6,4 +6,5 @@ public interface CharacterRepository {
 
     void save(CharacterModel characterModel);
     ArrayList<CharacterModel> getCharacters();
+    void delete(String characterId);
 }
