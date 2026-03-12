@@ -22,4 +22,9 @@ public class CharacterDataRepository implements CharacterRepository {
     public ArrayList<CharacterModel> getCharacters() {
         return characterMemLocalDataSource.findAll();
     }
+
+    @Override
+    public void delete(String characterId) {
+        characterMemLocalDataSource.delete(characterId);
+    }
 }
